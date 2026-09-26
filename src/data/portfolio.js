@@ -38,7 +38,7 @@ export const about = {
   paragraphs: [
     "I hold a degree in **Civil Technology from the University of Lahore (UOL)** and bring over a decade of hands-on experience in both technical and administrative positions. My expertise spans AutoCAD, graphic design, MS Office, front-end web development (NAVTTC certified) and DAE Civil Technology instruction.",
     "For more than five years I taught DAE Civil Technology — delivering technical education and mentoring students through both theory and practical work — and later led the Civil Engineering Department as **HOD at Punjab Institute of Engineering and Technology**.",
-    "My most recent government role was **Hostel Warden (BS-11) at NASHEMAN**, Social Welfare & Bait-ul-Maal Department Punjab, where I also volunteered as a Graphic Designer and Coordinator to the Computer Instructor — taking initiative well beyond my official duties. Since then I have added accounting experience at Umer Hasan Impex, logistics sales at Brothers Logistics LLC and truck dispatching at Haul 48 Logistics, which sharpened my record-keeping, negotiation and coordination skills.",
+    "My most recent government role was **Hostel Warden (BS-11) at NASHEMAN**, Social Welfare & Bait-ul-Maal Department Punjab, where I also volunteered as a Graphic Designer and Coordinator to the Computer Instructor — taking initiative well beyond my official duties. Since then I have moved into the US freight industry — accounting at Umer Hasan Impex, freight sales at **Brothers Logistics LLC**, dispatching for **Haul 48 Logistics**, and now as a Dispatcher at **HAMCO Logistics, Faisalabad**. That work sharpened my negotiation, record-keeping and coordination skills.",
     "I'm currently open to roles in **drafting, technical instruction, IT & administration, web development and dispatch operations**.",
   ],
   facts: [
@@ -61,36 +61,62 @@ export const filters = [
 
 export const experience = [
   {
-    role: "Truck Dispatcher",
+    role: "Dispatcher",
+    org: "HAMCO Logistics, Faisalabad",
+    start: "2026-09-26",
+    end: null, // ongoing — the card counts the duration itself
+    categories: ["logistics"],
+    featured: true,
+    current: true,
+    points: [
+      "Manage day-to-day dispatch operations for company drivers in the US freight market.",
+      "Source freight through load boards and direct contact with brokers and shippers.",
+      "Negotiate rates and book loads that match truck availability and driver preferences.",
+      "Plan pickup and delivery appointments, driver schedules and routes.",
+      "Track loads in transit and keep drivers, brokers and customers updated.",
+      "Maintain dispatch paperwork — rate confirmations, pickup details and delivery records.",
+    ],
+    tags: ["Freight Dispatch", "Load Booking", "Rate Negotiation", "Route Planning", "Broker Relations"],
+  },
+  {
+    role: "Dispatcher",
     org: "Haul 48 Logistics",
-    period: "6 Months",
+    start: "2026-04-01",
+    end: "2026-09-26",
     categories: ["logistics"],
     featured: true,
     points: [
-      "Coordinated daily load assignments, routes and schedules for assigned drivers.",
-      "Sourced and booked freight through load boards and direct broker contact, negotiating rates per mile.",
-      "Tracked shipments in transit and kept brokers and customers updated on pickup and delivery ETAs.",
-      "Prepared and filed trip paperwork — rate confirmations, bills of lading and proof of delivery.",
-      "Monitored Hours-of-Service compliance and driver logs to keep operations within regulation.",
-      "Resolved en-route problems — delays, detention, breakdowns and reroutes — to limit downtime.",
+      "Manage daily dispatching operations for two box truck drivers in the US freight transportation market.",
+      "Search for suitable freight loads through load boards and other available sources.",
+      "Coordinate with brokers and shippers to identify suitable and profitable load opportunities.",
+      "Negotiate freight rates and assist in securing loads according to truck availability and driver preferences.",
+      "Plan driver schedules, pickup appointments, delivery requirements and route coordination.",
+      "Maintain regular communication with drivers to monitor load progress and delivery status.",
+      "Handle dispatch documentation, including rate confirmations, pickup details and delivery information.",
+      "Support sales executives by finding suitable loads and freight opportunities for their customers.",
+      "Coordinate with the sales team to match available freight with suitable equipment and transportation requirements.",
+      "Maintain professional relationships with brokers, shippers and logistics partners.",
     ],
-    tags: ["Load Boards", "Rate Negotiation", "Route Planning", "HOS Compliance", "Customer Updates"],
+    tags: ["Load Boards", "Rate Negotiation", "Route Planning", "Broker Relations", "Dispatch Documentation"],
   },
   {
-    role: "Sales Person",
+    role: "Sales Executive",
     org: "Brothers Logistics LLC",
-    period: "6 Months",
+    start: "2025-09-01",
+    end: "2026-02-28",
+    precision: "month",
     categories: ["business", "logistics"],
     featured: true,
     points: [
-      "Prospected owner-operators and small fleets through cold calls, follow-ups and referrals.",
-      "Presented the company's logistics and dispatch services and explained pricing and terms.",
-      "Qualified leads and moved them through the pipeline from first contact to signed agreement.",
-      "Coordinated carrier onboarding — collecting MC/DOT details, insurance and setup documents.",
-      "Worked to monthly sales targets and reported leads, calls and conversions to management.",
-      "Maintained client relationships after signup to drive retention and referrals.",
+      "Identified and developed new business opportunities in the US trucking and freight transportation industry.",
+      "Contacted potential customers and shippers to promote freight transportation services.",
+      "Built and maintained professional relationships with clients to generate new sales opportunities.",
+      "Coordinated with dispatch and operations teams regarding available equipment and transportation requirements.",
+      "Assisted in finding suitable freight opportunities for company trucks.",
+      "Followed up with potential customers and maintained sales activity records.",
+      "Supported customer acquisition and business development efforts.",
     ],
-    tags: ["Lead Generation", "Cold Calling", "Client Onboarding", "Target Achievement", "Relationship Building"],
+    tags: ["Business Development", "Client Acquisition", "Freight Sales", "Relationship Building", "Sales Records"],
   },
   {
     role: "Accountant — POS Operator",
@@ -112,7 +138,9 @@ export const experience = [
   {
     role: "Computer Instructor",
     org: "The Creative College, Khurainwala — Faisalabad",
-    period: "Oct 2024 – Mar 2025",
+    start: "2024-10-01",
+    end: "2025-03-31",
+    precision: "month",
     categories: ["education"],
     points: [
       "Taught Computer Software & Applications to Inter Tech (FBISE) students.",
@@ -130,7 +158,8 @@ export const experience = [
   {
     role: "Hostel Warden (BS-11) — On Contract",
     org: "NASHEMAN — Social Welfare & Bait-ul-Maal Department, Punjab",
-    period: "Mar 2018 – Jun 2024 · 6+ yrs",
+    start: "2018-03-18",
+    end: "2024-06-30",
     categories: ["admin"],
     summary:
       "Additional voluntary role: Graphic Designer & Coordinator to the Computer Instructor.",
@@ -148,7 +177,8 @@ export const experience = [
   {
     role: "HOD — Civil Department",
     org: "Punjab Institute of Engineering and Technology",
-    period: "Apr 2015 – Dec 2017 · 3 yrs",
+    start: "2015-04-03",
+    end: "2017-12-10",
     categories: ["education", "admin"],
     columns: [
       {
@@ -178,7 +208,8 @@ export const experience = [
   {
     role: "Civil Instructor",
     org: "Ravi Institute of Engineering and Technology",
-    period: "Jan 2014 – Feb 2015 · 1 yr",
+    start: "2014-01-27",
+    end: "2015-02-28",
     categories: ["education"],
     points: [
       "Lectured on Basic Surveying, Engineering Materials & Constructions, Computer Applications, Civil Engineering Drawing & AutoCAD, Building Construction, and Environment, Health & Safety.",
@@ -191,7 +222,8 @@ export const experience = [
   {
     role: "Civil Instructor",
     org: "Punjab Institute of Engineering and Technology",
-    period: "Sep 2012 – Dec 2013 · 1 yr",
+    start: "2012-09-03",
+    end: "2013-12-28",
     categories: ["education"],
     points: [
       "Taught Engineering Materials & Constructions, Basic Engineering Drawing, Public Health Technology, Civil Engineering Drawing & AutoCAD, Soil Mechanics & Bridge Engineering, and Project Management.",

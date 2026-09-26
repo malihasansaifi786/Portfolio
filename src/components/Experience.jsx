@@ -1,11 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { experience, filters } from "@/data/portfolio";
+import { formatPeriod } from "@/lib/duration";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
-function JobCard({ job }) {
+function JobCard({ job, now }) {
+  const { range, duration } = formatPeriod(job, now);
+
   return (
     <article className="surface group relative p-6 transition-colors duration-300 hover:border-accent-500/40 sm:p-7">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -13,16 +16,31 @@ function JobCard({ job }) {
           <h3 className="font-display text-xl font-semibold text-mist-100">{job.role}</h3>
           <p className="mt-1 text-sm text-accent-300/90">{job.org}</p>
         </div>
-        <span
-          className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium ${
-            job.featured
-              ? "border-gold-400/40 bg-gold-400/10 text-gold-300"
-              : "border-ink-600 bg-ink-800/60 text-mist-300"
-          }`}
-        >
-          {job.period}
-        </span>
+        <div className="flex shrink-0 flex-wrap items-center gap-2">
+          {job.current && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-300">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              Current
+            </span>
+          )}
+          <span
+            className={`rounded-full border px-3 py-1 text-xs font-medium ${
+              job.featured
+                ? "border-gold-400/40 bg-gold-400/10 text-gold-300"
+                : "border-ink-600 bg-ink-800/60 text-mist-300"
+            }`}
+          >
+            {range}
+          </span>
+        </div>
       </div>
+
+      {duration && (
+        <p className="mt-2 text-xs font-medium tracking-wide text-mist-400">{duration}</p>
+      )}
 
       {job.summary && (
         <p className="mt-4 rounded-lg border-l-2 border-accent-500/50 bg-ink-800/40 px-4 py-3 text-sm text-mist-300">
@@ -89,6 +107,11 @@ function JobCard({ job }) {
 export default function Experience() {
   const [filter, setFilter] = useState("all");
 
+  // Set after mount so the server render and the first client render match;
+  // an ongoing role then counts from the visitor's own date.
+  const [now, setNow] = useState(null);
+  useEffect(() => setNow(new Date()), []);
+
   const visible = useMemo(
     () =>
       filter === "all"
@@ -141,7 +164,7 @@ export default function Experience() {
                 aria-hidden="true"
               />
               <Reveal delay={Math.min(i, 4) * 60}>
-                <JobCard job={job} />
+                <JobCard job={job} now={now} />
               </Reveal>
             </li>
           ))}

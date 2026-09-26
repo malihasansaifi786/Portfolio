@@ -45,9 +45,10 @@ Setting `featured: true` gives the card a gold accent.
 
 ## Files to drop in
 
-| Path                      | Status                                                       |
-| ------------------------- | ------------------------------------------------------------ |
-| `public/Ali_Hasan_CV.pdf` | ✅ In place — served by every "Download CV" button.           |
+| Path                       | Status                                                        |
+| -------------------------- | ------------------------------------------------------------- |
+| `public/Ali_Hasan_CV.pdf`  | ✅ In place — served by every "Download CV" button.            |
+| `public/Ali_Hasan_CV.docx` | ✅ Editable Word version of the same CV.                       |
 | `public/profileImg.png`   | ✅ Original portrait (source, 1003×1254).                     |
 | `public/profileImg.webp`  | ✅ Web-optimised copy used on the site (800×1000, ~46 KB).    |
 
@@ -58,6 +59,21 @@ node -e "require('sharp')('public/profileImg.png').resize({width:800}).webp({qua
 ```
 
 Without a photo the hero shows an **AH** monogram plate instead — nothing breaks.
+
+## Regenerating the CV
+
+The CV is generated from [scripts/build-cv.js](scripts/build-cv.js), so the PDF and the
+Word file never drift apart. Edit the content in that script, then:
+
+```bash
+npm install --no-save docx
+node scripts/build-cv.js public/Ali_Hasan_CV.docx
+```
+
+Then open the `.docx` in Word and **Save As → PDF** over `public/Ali_Hasan_CV.pdf`.
+
+Editing the `.docx` directly in Word works too — just export a new PDF afterwards, and
+copy your changes back into the script if you want them kept.
 
 ## Contact form
 
